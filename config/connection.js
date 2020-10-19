@@ -1,10 +1,14 @@
+// Import mysql module
 var mysql = require("mysql");
+
+// Import dotenv module
+require("dotenv").config();
 
 var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "password",
+    password: process.env.password,
     database: "burgers_db"
 });
 
