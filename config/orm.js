@@ -1,12 +1,12 @@
 // Import connection.js file
-var connection = require("./connection.js");
+const connection = require("./connection.js");
 
 // Set up orm object with functions 'select all, insert one and update one' SQL statements
-var orm = {
+const orm = {
 
     selectAll: (table, cb) => {
         const queryString = "SELECT * FROM " + table + ";";
-        connection.query(queryString, function (err, result) {
+        connection.query(queryString, [table], (err, result) => {
             if (err) {
                 throw err;
             }
@@ -26,11 +26,10 @@ var orm = {
 
         console.log(queryString);
 
-        connection.query(queryString, vals, function (err, result) {
+        connection.query(queryString, vals, (err, result) => {
             if (err) {
                 throw err;
             }
-
             cb(result);
         });
     },
@@ -44,11 +43,10 @@ var orm = {
         queryString += condition;
     
         console.log(queryString);
-        connection.query(queryString, function(err, result) {
+        connection.query(queryString, (err, result) => {
           if (err) {
             throw err;
           }
-    
           cb(result);
         });
       }
