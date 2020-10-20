@@ -11,6 +11,7 @@ const orm = {
                 throw err;
             }
             cb(result);
+            console.log(result);
         });
     },
 
