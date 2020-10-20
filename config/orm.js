@@ -14,7 +14,7 @@ var orm = {
         });
     },
 
-    insertOne: (table, cols, vals, cb) => {
+    createOne: (table, cols, vals, cb) => {
         var queryString = "INSERT INTO " + table;
 
         queryString += " (";
