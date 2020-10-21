@@ -1,6 +1,8 @@
 // Import connection.js file
 const connection = require("./connection.js");
 
+// function printQuestionMarks()
+
 // Set up orm object with functions 'select all, insert one and update one' SQL statements
 const orm = {
 
@@ -15,19 +17,12 @@ const orm = {
         });
     },
 
-    createOne: (table, cols, vals, cb) => {
-        var queryString = "INSERT INTO " + table;
-
-        queryString += " (";
-        queryString += cols.toString();
-        queryString += ") ";
-        queryString += "VALUES (";
-        queryString += printQuestionMarks(vals.length);
-        queryString += ") ";
-
+    createOne: (name, cb) => {
+        console.log(name, "ORM IS HIT");
+        var queryString = `INSERT INTO burgers (burger_name, devoured) VALUES (?, 0);` 
         console.log(queryString);
 
-        connection.query(queryString, vals, (err, result) => {
+        connection.query(queryString, name, (err, result) => {
             if (err) {
                 throw err;
             }
