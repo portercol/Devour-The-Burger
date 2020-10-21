@@ -1,42 +1,45 @@
-$(function() {
-    $(".devour").on("click", function(event) {
-      var id = $(this).data("id");
+// Grab the form
+$('#form').on('submit', function(event){
+    // console.log("is it hit?");
+    // Prevent the default action of page reloading
+    event.preventDefault();
   
-      var devoured = {
-        devoured: 1
-      };
+    // create a new burger
+    let newBurger = {
+      // set the burger name to the value the user types in
+      burger_name: $('#addBurger').val().trim()
+    }
+    console.log(newBurger);
   
-      // Send the PUT request.
-      $.ajax("/api/burgers/" + id, {
-        type: "PUT",
-        data: devoured
-      }).then(
-        function() {
-          console.log("devoured burger");
-          // Reload the page to get the updated list
-          location.reload();
-        }
-      );
-    });
+    // Send Ajax post request - set the data to the newBuger 
+    $.ajax('/api/burgers', {
+      method: 'POST',
+      data: newBurger
+    }).then(function(){
+      // reloads the page after a post 
+      location.reload();
+    })
   
-    // $(".create-form").on("submit", function(event) {
-    //   // Make sure to preventDefault on a submit event.
-    //   event.preventDefault();
+  });
   
-    //   var newBurger = {
-    //     name: $("#burger").val().trim()
-    //   };
+  $('#smashBurger').on('click', function(){
+    // using the data method to update data that has a 'burgerId' value
+    const id = $(this).data('id');
+    const devoured = $(this).data('devoured')
+    console.log(id)
   
-    //   // Send the POST request.
-    //   $.ajax("/api/burgers", {
-    //     type: "POST",
-    //     data: newBurger
-    //   }).then(
-    //     function() {
-    //       console.log("created new burger to devour");
-    //       // Reload the page to get the updated list
-    //       location.reload();
-    //     }
-    //   );
-    // });
-});
+    // create a new burger
+    let changeBurger = {
+      // set the burger name to the value the user types in
+      devoured: devoured
+    }
+  
+    // Send Ajax put request to update the data 
+    $.ajax("/:id", {
+      method: 'PUT',
+      data: changeBurger
+    }).then(function(){
+      location.reload();
+    })
+  
+  });
