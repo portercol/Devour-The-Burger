@@ -6,7 +6,12 @@
   <ul>
     {{#each burgers}}
     {{#unless this.devoured}}
-    <ul> {{ this.burger_name }} </ul>
+    <ul>
+      {{this.burger_name}}
+      <button class="devour" data-id="{{id}}">
+        DEVOUR!!
+      </button>
+    </ul>
     {{/unless}}
     {{/each}}
   </ul>
@@ -14,28 +19,23 @@
 
 <h2>Chef Suggestions?</h2>
 <form class="create-form">
-
   <div class="form-group">
     <label for="ca">Burger Name:</label>
     <input type="text" id="ca" name="name">
   </div>
-
-  {{!-- <div class="form-group">
-    <label for="slee">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
-  </div> --}}
-
   <button type="submit">Add Burger</button>
 </form>
 
+
 <h2>Burgers chowed...</h2>
-
-{{!-- <ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
+<div>
+  <ul>
+    {{#each burgers}}
+    {{#if this.devoured}}
+    <ul>
+      {{this.burger_name}}
+    </ul>
     {{/if}}
-  {{/each}}
-</ul> --}}
-
+    {{/each}}
+  </ul>
+</div>
