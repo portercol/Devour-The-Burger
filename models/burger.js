@@ -9,8 +9,8 @@ const burger = {
         });
     },
     // The variables cols and vals are arrays.
-    create: (cols, vals, cb) => {
-        orm.createOne("burgers", cols, vals, (res) => {
+    create: (name, cb) => {
+        orm.createOne(name, (res) => {
             cb(res);
         });
     },
