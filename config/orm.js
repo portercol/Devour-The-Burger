@@ -19,7 +19,7 @@ const orm = {
 
     createOne: (name, cb) => {
         console.log(name, "ORM IS HIT");
-        var queryString = `INSERT INTO burgers (burger_name, devoured) VALUES (?, 0);` 
+        var queryString = `INSERT INTO burgers (burger_name, devoured) VALUES (?, 0);`
         console.log(queryString);
 
         connection.query(queryString, name, (err, result) => {
@@ -30,22 +30,15 @@ const orm = {
         });
     },
 
-    updateOne: (table, objColVals, condition, cb) => {
-        var queryString = "UPDATE " + table;
-    
-        queryString += " SET ";
-        queryString += objToSql(objColVals);
-        queryString += " WHERE ";
-        queryString += condition;
-    
-        console.log(queryString);
-        connection.query(queryString, (err, result) => {
-          if (err) {
-            throw err;
-          }
-          cb(result);
+    updateOne: (devoured, id, cb) => {
+        console.log("hit orm.js");
+        var queryString = `UPDATE burgers SET devoured=? WHERE id=?;`
+
+        connection.query(queryString, [devoured, id], (err, result) => {
+            if (err) throw err;
+            cb(result);
         });
-      }
+    }
 };
 
 module.exports = orm;
