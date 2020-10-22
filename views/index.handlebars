@@ -1,10 +1,11 @@
+{{!-- Jumbotron to display Header/Title of application --}}
 <div class="jumbotron background-image text-center">
   <div class="container">
-    <h1 class="display-4 text-white main-h1">Burger Tyme!</h1>
+    <h4 class="display-4 text-white main-h2">Burger Tyme!</h4>
   </div>
 </div>
 
-
+{{!-- Container to hold input box and "add burger" button --}}
 <div class="container">
   <div class="row text-center bg-light">
     <div class="card card-body">
@@ -64,49 +65,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-{{!-- <h1>Burger Tyme!</h1>
-
-<div>
-  <h2>Deliciousness below...</h2>
-
-  <ul>
-    {{#each burgers}}
-    {{#unless this.devoured}}
-    <ul>
-      {{this.burger_name}}
-      <button class="devour" data-id="{{id}}">
-        DEVOUR!!
-      </button>
-    </ul>
-    {{/unless}}
-    {{/each}}
-  </ul>
-</div>
-
-<h2>Chef Suggestions?</h2>
-<form class="create-form">
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
-  <button type="submit">Add Burger</button>
-</form>
-
-
-<h2>Burgers chowed...</h2>
-<div>
-  <ul>
-    {{#each burgers}}
-    {{#if this.devoured}}
-    <ul>
-      {{this.burger_name}}
-    </ul>
-    {{/if}}
-    {{/each}}
-  </ul>
-</div> --}}
