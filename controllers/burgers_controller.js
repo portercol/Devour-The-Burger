@@ -1,11 +1,11 @@
 // Require express module
-var express = require("express");
+const express = require("express");
 
 // Import burger.js file
-var burger = require("../models/burger.js");
+const burger = require("../models/burger.js");
 
 // Create instance of express router
-var router = express.Router();
+const router = express.Router();
 
 // Create get route to get all burgers
 router.get("/", (req, res) => {
@@ -25,23 +25,19 @@ router.post("/api/burgers", (req, res) => {
     });
 });
 
-// Create put route to get burgers id
+// Create put route to get burgers id and 'devour burger'
 router.put("/api/burgers/:id", (req, res) => {
-    var condition = "id = " + req.params.id;
-    console.log("condition", condition);
-    burger.update(
-        {
-            bbq: req.body.bbq
-        },
-        condition,
-        (result) => {
-            if (result.changedRows === 0) {
-                // If no rows were changed, then the ID must not exist, so 404
-                return res.status(404).end();
-            }
-            res.status(200).end();
-        }
-    );
+    var condition = req.params.id;
+    // console.log("condition", condition);
+    console.log("hit controller.js");
+    burger.update(req.body.devoured, condition, (result) => {
+        if (result.changedRows === 0) {
+            // If no rows were changed, then the ID must not exist, so 404
+            return res.status(404).end();
+        } else {
+        res.status(200).end();
+    }
+    });
 });
 
 module.exports = router;
