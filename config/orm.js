@@ -1,7 +1,7 @@
 // Import connection.js file
 const connection = require("./connection.js");
 
-// Set up orm object with functions 'select all, insert one and update one' SQL statements
+// Set up orm object with functions 'select all, create one and update one' with SQL statements
 const orm = {
 
     selectAll: (table, cb) => {
