@@ -5,7 +5,6 @@ const burger = {
     all: (cb) => {
         orm.selectAll("burgers", (res) => {
             cb(res);
-            // console.log(selectAll);
         });
     },
     // The variables cols and vals are arrays.
