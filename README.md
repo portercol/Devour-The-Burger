@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Link to deployed site: [Devour The Burger]()
+Link to deployed site: [Devour The Burger](https://glacial-caverns-34503.herokuapp.com/)
 
 ## Description
 A restaurant app that allows the user to input the names of burgers they'd like to eat. After adding the burger the user will see a list of burgers waiting to be devoured. After clicking devour, the user will see the list of burgers that have been devoured on the right hand side.
