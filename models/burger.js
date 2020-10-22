@@ -14,8 +14,9 @@ const burger = {
             cb(res);
         });
     },
-    update: (objColVals, condition, cb) => {
-        orm.updateOne("burgers", objColVals, condition, (res) => {
+    update: (devoured, id, cb) => {
+        console.log("hit burger.js");
+        orm.updateOne(devoured, id, (res) => {
             cb(res);
         });
     }
