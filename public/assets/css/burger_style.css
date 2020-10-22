@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin-bottom: 5rem;
+  }
+  
+  .jumbotron {
+    background-color: crimson;
+  }
+  
+  #submitBurger {
+    width: 100%;
+  }
