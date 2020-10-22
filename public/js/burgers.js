@@ -22,7 +22,7 @@ $('#form').on('submit', function(event){
   
   });
   
-  $('#smashBurger').on('click', function(){
+  $('#devourBurger').on('click', function(){
     // using the data method to update data that has a 'burgerId' value
     const id = $(this).data('id');
     const devoured = $(this).data('devoured')
