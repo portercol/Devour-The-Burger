@@ -19,11 +19,11 @@ $('#submitBurger').on('click', function (event) {
 
 });
 
-$('#devourBurger').on('click', function () {
+$('.devourBurger').on('click', function () {
     // Storing ID value and devoured value in variables
     const id = $(this).data('id');
     const devoured = 1;
-
+    console.log(id);
     // Storing the property of 'devoured' to the variable which is === 1 in a variable
     let devourBurger = {
         devoured: devoured
