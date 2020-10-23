@@ -13,7 +13,6 @@ const burger = {
         });
     },
     update: (devoured, id, cb) => {
-        console.log("hit burger.js");
         orm.updateOne(devoured, id, (res) => {
             cb(res);
         });
