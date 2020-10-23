@@ -5,7 +5,7 @@ const connection = require("./connection.js");
 const orm = {
 
     selectAll: (table, cb) => {
-        const queryString = "SELECT * FROM " + table + ";";
+        const queryString = `SELECT * FROM ` + table + `;`;
         connection.query(queryString, [table], (err, result) => {
             if (err) {
                 throw err;
